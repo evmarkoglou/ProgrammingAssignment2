@@ -14,9 +14,13 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         y <- makeCacheMatrix(x)
-        ## Check if it has already been calculated
+        ## Check if it has already been calculated,
         if (x == y) {
-            solve(makeCacheMatrix())
+        ## then retrieve the inverse from the cache
+            solve(makeCacheMatrix(x))
+        }
+        else {
+            y
         }
 }
 
